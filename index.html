@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang = "en" >
+	<head >
+		<meta charset = "UTF-8" >
+		<title >Title</title >
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="common/dist/themes/default/style.min.css" />
+		<link rel="stylesheet" href="css/index.css">
+	</head >
+	<body style="overflow: hidden;">
+		<!---header--->
+		<header id="header">
+			<!-- LOGO -->
+			<div class="header-logo">
+				<!--<img src = "./images/logo.png" alt = "logo" >-->
+			</div>
+
+			<!-- title -->
+			<div class="header-title">
+				<h1>
+					xxx系统
+				</h1>
+				<p>
+					abc
+				</p>
+			</div>
+			<!-- menu -->
+			<div class="header-menu">
+				<span class="menuIcon"><img src="images/menuIcon.png" alt="菜单"/></span>
+			</div>
+		</header>
+		<!-- 侧边栏开始 -->
+		<aside id="aside" class="fl" style="overflow: hidden;">
+			<menu class="aside-menu" id="menuTree">
+				
+			</menu>			
+		</aside>
+		<!--侧边栏结束-->
+
+		<!--主体部分开始-->
+		<section id='section' class="article-main">
+			<!--<iframe src="Gis/popup.html"></iframe>-->
+		</section>
+	</body >
+
+
+	<!---COMMON-JS--->
+<script type="text/javascript" src="common/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="common/ajax.js"></script>
+<script type="text/javascript" src="common/jstree.min.js"></script>
+<script type="text/javascript">
+  ;$(function() {
+    ajax_Interface_Service('/WHP.HydroPower/settings/function/menu').done(function(resp) {
+      if(resp.flag) {
+        var dataJson = {
+          'core': {
+            'data': []
+          }
+        };
+        
+        dataJson.core.data = resp.data;
+        $('#menuTree').jstree(dataJson);
+      }
+    }).fail(function(err) {
+      console.log(err);
+    });
+    
+    var menuUrl = {
+      period: 'html/longDataPower/setParams.html',
+      statisticPeriod: '',
+      calcReservoirs: ''
+    }
+    
+    //创建iframe
+    $('#menuTree').bind("activate_node.jstree", function (obj, e) {
+      var obj = e.node,
+          currentNode = obj.id,
+          id = currentNode.substring(3),
+          type = obj.original.type;
+          
+        console.log(e.node)
+        if(obj.original.type != 'function') {
+          var nowIframe = $('#section #iframe'+ currentNode);
+          if(nowIframe.length < 1) {
+            $('#section iframe').removeClass().addClass('none');
+            $("#section").append('<iframe class="active" id="iframe'+currentNode+'" src="html/longDataPower/'+(type+id)+'.html"></iframe>');
+          }else{
+            nowIframe.removeClass().addClass('active').siblings().removeClass().addClass('none');
+          }
+        }
+    });
+  })
+	
+	// 内容宽度
+  var bodyWidth = $(window).width();
+  var leftMenuWidth = (240 / bodyWidth).toFixed(2) * 100;
+  var rightsection  = 100 - leftMenuWidth; 
+  var lfAside = leftMenuWidth+"%",rgSect = rightsection+"%";
+  $("#aside").width(lfAside);
+  $("#section").width(rgSect);
+  // 菜单显示隐藏
+  $(".menuIcon").on("click",function(){
+    if($("#aside").css("width") == "0px"){
+      $("#aside").animate({
+        "width":lfAside,
+        "opacity":"1"
+      });
+      $("#section").animate({
+        "width":rgSect
+      });
+    }else{
+      $("#aside").animate({
+        "width":"0",
+        "opacity":"0"
+      });
+      $("#section").animate({
+        "width":"100%"
+      });
+    }
+  });
+</script>

@@ -1,0 +1,117 @@
+
+html, body,
+ul, ol, li, dt, dl, dd,
+h1, h2, h3, h4, h5, h6,
+div, p, iframe,
+span, i, a, strong, img,
+header, aside, section, main, nav, article, footer, hgroup, menu, dir,
+table, caption, thead, tbody, tfoot, tr, td, th,
+input, button, textarea, form, select, option {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: middle;
+    font-size: inherit;
+    font-family: "PingFang SC Regular", "Microsoft YaHei", Arial, SimSun, "微软雅黑";
+    font-weight: normal;
+    font-style: normal;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*select, option {
+    !*很关键：将默认的select选择框样式清除*!
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+
+    border: 1px solid #CCCCCC;
+}*/
+
+button, label {
+    cursor: pointer;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+html, body, a {
+    font-size: 14px;
+    color: black;
+    background-color: transparent;
+}
+
+textarea {
+    resize: none;
+}
+
+ol, ul, li, menu, dir {
+    list-style-type: none;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th, td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.l {
+    text-align: left;
+}
+
+.r {
+    text-align: right;
+}
+
+.c {
+    text-align: center;
+}
+
+.clearfix:before,.clearfix:after {  /*清楚浮动*/
+    content:"";
+    display:table;
+}
+
+.clearfix:after{
+    clear:both;
+}
+
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/*不显示日期格式不合法的报错*/
+.layui-laydate-hint {
+  display: none;
+}
+
+
+
+
+

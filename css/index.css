@@ -1,0 +1,72 @@
+
+/** 佈局 **/
+#header{
+	height: 55px;
+	padding: 8px 0 0 15px;
+    background-color: #63a8eb;
+    position: relative;
+}
+#aside{
+	width: 240px;
+	float: left;
+    height: calc(100% - 55px);
+}
+#section{
+	height: calc(100% - 55px);
+	float: left;
+}
+iframe{
+  width: 100%;
+  height: 100%;
+}
+
+/** 全局樣式 **/
+.noBorder{
+	border: none;
+}
+/** header **/
+.header-title{
+	float: left;
+}
+.header-title h1 {
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 5px;
+  float: left;
+}
+.header-title p {
+  font-size: 7px;
+  color: #b1d4f5;
+}
+.header-logo{
+	float: left;
+	margin-right: 8px;
+}
+.header-menu {
+    width: 23px;
+    height: 17px;
+    top: 20px;
+    right: 11px;
+    float: left;
+}
+.menuIcon img{
+    width: 20px;
+    height: 16px;
+    margin-left: 90px;
+    cursor: pointer;
+}
+/** aside **/
+.aside-menu{
+	height: 100%;
+	background: #eee;
+}
+
+/**iframe**/
+.active{
+  display: block;
+}
+.none{
+  display: none;
+}
+
+

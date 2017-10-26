@@ -1,5 +1,12 @@
 ;$(function() {
-  
+  var queryString = location.hash;
+      ajaxParams = queryString.substring(1).split('&');
+      ajaxData = {
+        type: ajaxParams[0].split('=')[1],
+        text: ajaxParams[1].split('=')[1]
+      }
+      console.log(ajaxData)
+      
   var data1=  [
     ['', 'Kia', 'Nissan', 'Toyota', 'Honda', 'Mazda', 'Ford'],
     ['2012', 10, 11, 12, 13, 15, 16],

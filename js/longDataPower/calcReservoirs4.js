@@ -6,6 +6,7 @@
         name: ajaxParams[1].split('=')[1],
         id: ajaxParams[2].split('=')[1]
       }
+      console.log(ajaxData);
   //function initHandsontable() {
     var sourceArr = ['月', '旬'],
       sourceArr1 = ['年', '月'];
@@ -29,11 +30,6 @@
       contextMenu: true,
       columns: [       //操纵显示列和列的其他操纵
         {readOnly: true},
-        { 
-          type:'dropdown',
-          source:sourceArr,
-        },
-        {readOnly: true},
         {readOnly: true},
         {type: 'checkbox'}
       ],
@@ -53,7 +49,7 @@
   });
   
   function objChangeArr(params) {
-    var hotHeadsArr = ['periodTypeNum', 'periodType', 'periodName', 'periodNum', 'isDefault'];
+    var hotHeadsArr = ['reservoirId', 'reservoirName', 'isCalc'];
     var factoryParams = [],
         cacheParams = [];
     params.forEach(function(val, i) {

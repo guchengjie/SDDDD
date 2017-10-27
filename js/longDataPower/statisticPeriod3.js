@@ -6,6 +6,7 @@
         name: ajaxParams[1].split('=')[1],
         id: ajaxParams[2].split('=')[1]
       }
+      console.log(ajaxData);
   //function initHandsontable() {
     var sourceArr = ['月', '旬'],
       sourceArr1 = ['年', '月'];
@@ -27,6 +28,7 @@
       currentRowClassName : 'selected', //整行整列选中时，表头和序号也选择
       currentColClassName : 'selected',
       contextMenu: true,
+      //stretchH: 'all', 自适应宽度
       columns: [       //操纵显示列和列的其他操纵
         {readOnly: true},
         { 
@@ -34,8 +36,11 @@
           source:sourceArr,
         },
         {readOnly: true},
-        {readOnly: true},
-        {type: 'checkbox'}
+        { 
+          type:'dropdown',
+          source:sourceArr1,
+        },
+        {readOnly: true}
       ],
       beforeChange: function(changes, source) {
         //hot.setCellMeta()
@@ -53,7 +58,7 @@
   });
   
   function objChangeArr(params) {
-    var hotHeadsArr = ['periodTypeNum', 'periodType', 'periodName', 'periodNum', 'isDefault'];
+    var hotHeadsArr = ['periodTypeNum', 'periodType', 'statisticPeriodTypeNum', 'statisticPeriodType', 'statisticPeriodName'];
     var factoryParams = [],
         cacheParams = [];
     params.forEach(function(val, i) {

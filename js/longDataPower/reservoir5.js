@@ -28,11 +28,7 @@
       currentColClassName : 'selected',
       contextMenu: true,
       columns: [       //操纵显示列和列的其他操纵
-        {readOnly: true},
-        { 
-          type:'dropdown',
-          source:sourceArr,
-        },
+        {readOnly: false},
         {readOnly: true},
         {readOnly: true},
         {type: 'checkbox'}
@@ -53,7 +49,7 @@
   });
   
   function objChangeArr(params) {
-    var hotHeadsArr = ['periodTypeNum', 'periodType', 'periodName', 'periodNum', 'isDefault'];
+    var hotHeadsArr = ['periodTypeNum', 'periodName', 'periodNum', 'isDefault'];
     var factoryParams = [],
         cacheParams = [];
     params.forEach(function(val, i) {

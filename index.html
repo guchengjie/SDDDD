@@ -76,15 +76,16 @@
       var obj = e.node,
           currentNode = obj.id,
           id = currentNode.substring(3),
-          text = obj.original.text || '';
-          type = obj.original.type || '';
+          text = obj.original.text || '',
+          type = obj.original.type || '',
+          dataid = obj.original.dataId || '';
           
         console.log(e.node)
         if(obj.original.type != 'function') {
           var nowIframe = $('#section #iframe'+ currentNode);
           if(nowIframe.length < 1) {
             $('#section iframe').removeClass().addClass('none');
-            $("#section").append('<iframe class="active" id="iframe'+currentNode+'" src="html/longDataPower/'+(type+id)+'.html#type='+type+'&text='+text+'"></iframe>');
+            $("#section").append('<iframe class="active" id="iframe'+currentNode+'" src="html/longDataPower/'+(type+id)+'.html#type='+type+'&text='+text+'&id='+dataid+'"></iframe>');
           }else{
             nowIframe.removeClass().addClass('active').siblings().removeClass().addClass('none');
           }
@@ -118,5 +119,11 @@
         "width":"100%"
       });
     }
+    
+    //子页面调用方法
+    function bodyHeight() {
+      return document.body.clientHeight;
+    }
+    
   });
 </script>
